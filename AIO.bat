@@ -56,6 +56,19 @@ IF NOT EXIST requirements.txt (
 echo Installing dependencies...
 pip install -r requirements.txt
 
+:: Download buzzer.py from GitHub
+echo Downloading buzzer.py from GitHub...
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JuanTamadski/SimpleBuzzer/main/buzzer.py' -OutFile 'buzzer.py'"
+
+:: Download WAV files from GitHub
+echo Downloading other files from GitHub...
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JuanTamadski/SimpleBuzzer/main/player1.wav' -OutFile 'player1.wav'"
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JuanTamadski/SimpleBuzzer/main/player2.wav' -OutFile 'player2.wav'"
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JuanTamadski/SimpleBuzzer/main/player3.wav' -OutFile 'player3.wav'"
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JuanTamadski/SimpleBuzzer/main/player4.wav' -OutFile 'player4.wav'"
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JuanTamadski/SimpleBuzzer/main/buzzer.wav' -OutFile 'buzzer.wav'"
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JuanTamadski/SimpleBuzzer/main/runme.bat' -OutFile 'runme.bat'"
+
 :: Run the main script
 echo Starting the buzzer program...
 python buzzer.py
